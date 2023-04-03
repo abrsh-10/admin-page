@@ -1,1 +1,37 @@
-<p>users works!</p>
+<div>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Access</th>
+        <th scope="col" id="actions" colspan="2">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName.toUpperCase() }}</td>
+        <td>{{ user.lastName.toUpperCase() }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td [ngClass]="{ access: user.isAllowed, not: !user.isAllowed }">
+          <div></div>
+          {{ user.isAllowed ? "allowed" : "not allowed" }}
+        </td>
+        <td>
+          <button (onClick)="onUpdate(user)">
+            {{ user.isAllowed ? "revoke access" : "grant access" }}
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (onClick)="onDelete(user)">
+            delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,7 +1,9 @@
-<div class = "container">
-    <h3>{{title}}</h3>
-    <button class="btn btn-danger">
-        view users
-    </button>
+<div class="container">
+  <h3>{{ title }}</h3>
+  <button class="btn btn-danger" *ngIf="hasRoute('/')" routerLink="/add-user">
+    add user
+  </button>
+  <button class="btn btn-danger" *ngIf="hasRoute('/add-user')" routerLink="">
+    list users
+  </button>
 </div>
- 
