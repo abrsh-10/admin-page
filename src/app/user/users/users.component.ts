@@ -17,21 +17,19 @@ export class UsersComponent implements OnInit {
   }
 
   onDelete(user: User): void {
-    console.log('Deleted');
-    // this.userService
-    //   .deleteUser(user.email)
-    //   .subscribe(
-    //     () => (this.users = this.users.filter((u) => u.email !== user.email))
-    //   );
+    this.userService
+      .deleteUser(user.email)
+      .subscribe(
+        () => (this.users = this.users.filter((u) => u.email !== user.email))
+      );
   }
   onUpdate(user: User): void {
-    console.log('Updated');
-    // if (user.isAllowed) {
-    //   user.isAllowed = false;
-    //   this.userService.revokeAccess(user.email).subscribe();
-    // } else {
-    //   user.isAllowed = true;
-    //   this.userService.grantAccess(user.email).subscribe();
-    // }
+    if (user.isAllowed) {
+      user.isAllowed = false;
+      this.userService.revokeAccess(user.email).subscribe();
+    } else {
+      user.isAllowed = true;
+      this.userService.grantAccess(user.email).subscribe();
+    }
   }
 }

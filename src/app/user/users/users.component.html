@@ -22,12 +22,15 @@
           {{ user.isAllowed ? "allowed" : "not allowed" }}
         </td>
         <td>
-          <button (onClick)="onUpdate(user)">
+          <button
+            [ngClass]="user.isAllowed ? 'btn btn-danger' : 'btn btn-success'"
+            (click)="onUpdate(user)"
+          >
             {{ user.isAllowed ? "revoke access" : "grant access" }}
           </button>
         </td>
         <td>
-          <button class="btn btn-danger" (onClick)="onDelete(user)">
+          <button class="btn btn-danger" (click)="onDelete(user)">
             delete
           </button>
         </td>
