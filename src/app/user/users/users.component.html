@@ -7,7 +7,7 @@
         <th scope="col">Email</th>
         <th scope="col">Role</th>
         <th scope="col">Access</th>
-        <th scope="col" id="actions" colspan="2">Actions</th>
+        <th scope="col" id="actions">Actions</th>
       </tr>
     </thead>
 
@@ -24,14 +24,8 @@
         <td>
           <button
             [ngClass]="user.isAllowed ? 'btn btn-danger' : 'btn btn-success'"
-            (click)="onUpdate(user)"
           >
             {{ user.isAllowed ? "revoke access" : "grant access" }}
-          </button>
-        </td>
-        <td>
-          <button class="btn btn-danger" (click)="onDelete(user)">
-            delete
           </button>
         </td>
       </tr>

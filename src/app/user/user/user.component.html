@@ -1,1 +1,77 @@
-<p>user works!</p>
+<form class="add-form" (ngSubmit)="onSubmit()">
+  <h3>add new user form</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="form-control">
+          <label for="firstName" class="me-2">first name</label>
+          <input
+            type="text"
+            name="firstName"
+            [(ngModel)]="firstName"
+            id="firstName"
+            placeholder="add first name"
+            (click)="changeSuccess()"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-control">
+          <label for="lastName">last name</label>
+          <input
+            type="text"
+            name="lastName"
+            [(ngModel)]="lastName"
+            id="lastName"
+            placeholder="add last name"
+            (click)="changeSuccess()"
+          />
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="form-control">
+          <label for="email">email</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            id="email"
+            placeholder="add email"
+            (click)="changeSuccess()"
+          />
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="form-control">
+          <label for="role">role</label>
+          <select
+            name="role"
+            [(ngModel)]="role"
+            id="role"
+            (click)="changeSuccess()"
+          >
+            <option>Student</option>
+            <option>Teacher</option>
+            <option>Admin</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-check mb-3">
+    <input
+      type="checkbox"
+      name="access"
+      class="form-check-input"
+      [(ngModel)]="isAllowed"
+      id="access"
+    />
+    <label for="access" class="form-check-label">allow access</label>
+  </div>
+  <input
+    type="submit"
+    value="Save User"
+    class="btn btn-block btn-outline-dark"
+  />
+  <div class="text-muted fw-light" *ngIf="success">User Added</div>
+</form>
