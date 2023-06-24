@@ -1,0 +1,58 @@
+<div class="container header">
+  <h3 [ngStyle]="{ margin: 'auto' }">FAQ Page</h3>
+  <button class="btn btn-success" (click)="displayForm()">add FAQ</button>
+</div>
+<div *ngFor="let faq of faqs">
+  <div class="row justify-content-center mb-2">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-11 col-md-12">
+              <p class="fw-bold lead mb-2">
+                <li>{{ faq.question }}</li>
+              </p>
+              <p class="text-muted fw-light mb-1">"{{ faq.answer }}"</p>
+              <p class="text-muted">For: {{ faq.role }}</p>
+              <div class="form-control" *ngIf="faq.isUpdate">
+                <label for="answer">answer</label>
+                <input
+                  type="text"
+                  name="answer"
+                  [(ngModel)]="answer"
+                  id="answer"
+                  placeholder="edit answer"
+                />
+                <input
+                  type="submit"
+                  value="save answer"
+                  class="btn btn-block btn-outline-dark"
+                  (click)="updateFaq(faq)"
+                />
+              </div>
+            </div>
+            <div id="buttons" class="col-1">
+              <button
+                class="btn btn-warning"
+                *ngIf="faq.isUpdate"
+                (click)="updateModeToggler(faq)"
+              >
+                cancel
+              </button>
+              <div style="color: rgb(14, 0, 211)">
+                <i
+                  class="bi bi-pen-fill"
+                  (click)="updateModeToggler(faq)"
+                  *ngIf="!faq.isUpdate"
+                ></i>
+              </div>
+              <div style="color: red">
+                <i class="bi bi-trash-fill" (click)="deleteFaq(faq)"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

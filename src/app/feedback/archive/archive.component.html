@@ -1,0 +1,50 @@
+<div class="container header">
+  <h3 [ngStyle]="{ margin: 'auto' }">Archives Page</h3>
+  <button class="btn btn-success" routerLink="/feedback">feedbacks</button>
+</div>
+<div *ngFor="let feedback of archives">
+  <div class="row d-flex justify-content-center">
+    <div class="col-10 mb-2">
+      <div class="card">
+        <div class="card-body m-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 col-xs-12 mb-xs-4">
+                <p class="fw-bold lead mb-2">
+                  <strong>{{
+                    feedback.sentBy!.firstName!.toUpperCase() +
+                      " " +
+                      feedback.sentBy!.lastName!.toUpperCase()
+                  }}</strong>
+                </p>
+                <p class="lead mb-2">
+                  email:
+                  <a href="mailto:{{ feedback.sentBy!.email }}">{{
+                    feedback.sentBy!.email
+                  }}</a>
+                </p>
+                <p class="fw-bold text-muted mb-2">
+                  {{ "Role: " + feedback.sentBy!.role }}
+                </p>
+              </div>
+              <div class="col-lg-8 text-lg-end col-xs-12">
+                <div class="mb-5">
+                  <span class="fw-bold">Feedback: </span
+                  ><span class="text-muted fw-light"
+                    >"{{ feedback.message }}"</span
+                  >
+                </div>
+                <div class="align-text-bottom" id="date">
+                  {{ feedback.sentAt!.toString().split("T")[0] }}
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-danger" (click)="deleteFeedback(feedback)">
+              delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

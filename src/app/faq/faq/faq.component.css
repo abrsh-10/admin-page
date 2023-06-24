@@ -1,0 +1,42 @@
+.nav>span {
+    color: wheat;
+    font-size: xx-large;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px double;
+    border-radius: 5px;
+    background-color: darkgrey;
+    width: 60%;
+    margin-left: 20%;
+    height: 80px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: larger;
+}
+#buttons>div{
+    width: 20px;
+    cursor: pointer;
+    padding-left: 15px;
+}
+#buttons>div:hover{
+font-size: x-large;
+}
+
+.btn-warning {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 50%;
+}

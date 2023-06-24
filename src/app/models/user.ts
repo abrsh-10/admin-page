@@ -1,10 +1,10 @@
 import { Role } from './role';
 
 export class User {
-  id!: String;
-  firstName!: String;
-  lastName!: String;
-  email!: String;
+  id!: string;
+  firstName!: string;
+  lastName!: string;
+  email!: string;
   role!: Role;
   isAllowed!: Boolean;
 }

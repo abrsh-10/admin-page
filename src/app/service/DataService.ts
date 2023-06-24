@@ -7,6 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 })
 export class DataService<T> {
   constructor(private http: HttpClient) {}
+
   get(url: string): Observable<any> {
     return this.http.get<any>(url);
   }
@@ -31,7 +32,7 @@ export class DataService<T> {
     return this.http.post<T>(url, item);
   }
 
-  update(url: string, id: String, item: T): Observable<T> {
+  update(url: string, id: String, item?: any): Observable<T> {
     const apiUrl = `${url}/${id}`;
     return this.http.put<T>(apiUrl, item);
   }

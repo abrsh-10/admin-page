@@ -20,4 +20,16 @@ export class UserService extends DataService<User> {
     const url = `${this.getUrl()}`;
     return this.getAll(url);
   }
+  grantAccess(email: string): Observable<User> {
+    const url = `${this.getUrl()}/grant`;
+    return this.update(url, email, undefined);
+  }
+  revokeAccess(email: string): Observable<User> {
+    const url = `${this.getUrl()}/revoke`;
+    return this.update(url, email, undefined);
+  }
+  getByEmail(email: string): Observable<User> {
+    const url = `${this.getUrl()}/email`;
+    return this.getById(url, email);
+  }
 }

@@ -1,0 +1,50 @@
+<div mat-dialog-content class="popup col-6">
+  <h4>{{ data.title }}</h4>
+  <form #myForm="ngForm">
+    <div class="form-control">
+      <div class="mb-2">
+        <label><b>question</b></label>
+      </div>
+      <input
+        type="text"
+        name="question"
+        [(ngModel)]="question"
+        id="question"
+        placeholder="Add question"
+        required
+      />
+    </div>
+    <div class="form-control">
+      <div class="mb-2">
+        <label><b>answer</b></label>
+      </div>
+      <input
+        type="text"
+        name="answer"
+        [(ngModel)]="answer"
+        id="description"
+        placeholder="Add answer"
+        required
+      />
+    </div>
+    <div class="form-control">
+      <select [(ngModel)]="role" name="role">
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+      </select>
+    </div>
+    <div class="buttons">
+      <button
+        type="submit"
+        class="positive btn btn-sm"
+        [disabled]="!myForm.valid"
+        (click)="returnTrue()"
+      >
+        {{ data.positiveButton }}
+      </button>
+      <button (click)="returnFalse()" class="negative btn btn-sm">
+        {{ data.negativeButton }}
+      </button>
+    </div>
+  </form>
+</div>
